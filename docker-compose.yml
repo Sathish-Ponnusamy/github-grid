@@ -22,7 +22,8 @@ services:
     platform: linux/amd64
     working_dir: /app
     volumes:
-      - .:/app
+#      - .:/app
+      - ${CI_PROJECT_DIR}:/app
 
 #services:
 #  hub:
