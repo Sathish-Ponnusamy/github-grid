@@ -38,7 +38,12 @@ public class LoginBasicTest {
 		//System.setProperty("webdriver.gecko.driver", GECKO_DRIVER_FULL_PATH);
 		//driver = new FirefoxDriver();
         try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), new ChromeOptions());
+             driver = new RemoteWebDriver(new URL("http://myhub:4444"), new ChromeOptions());
+//            URL hubUrl = new URL("http://myhub:4444/wd/hub");
+            // Set capabilities for Chrome
+//            ChromeOptions options = new ChromeOptions();
+            // Add any necessary options (e.g., headless, args)
+//            driver = new RemoteWebDriver(hubUrl, options);
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -48,7 +53,9 @@ public class LoginBasicTest {
 
 	@AfterTest
 	public void tearDown() {
-		driver.quit();
+//        if (driver != null) { // <--- ADD THIS NULL CHECK
+            driver.quit();
+//        }
 	}
 
 	@Test
